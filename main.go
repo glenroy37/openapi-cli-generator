@@ -129,7 +129,7 @@ type OpenAPI struct {
 
 // ProcessAPI returns the API description to be used with the commands template
 // for a loaded and dereferenced OpenAPI 3 document.
-func ProcessAPI(shortName string, api *openapi3.Swagger) *OpenAPI {
+func ProcessAPI(shortName string, api *openapi3.T) *OpenAPI {
 	apiName := shortName
 	if api.Info.Extensions[ExtName] != nil {
 		apiName = extStr(api.Info.Extensions[ExtName])
@@ -622,9 +622,9 @@ func generate(cmd *cobra.Command, args []string) {
 	}
 
 	// Load the OpenAPI document.
-	loader := openapi3.NewSwaggerLoader()
-	var swagger *openapi3.Swagger
-	swagger, err = loader.LoadSwaggerFromData(data)
+	loader := openapi3.NewLoader()
+	var swagger *openapi3.T
+	swagger, err = loader.LoadFromData(data)
 	if err != nil {
 		log.Fatal(err)
 	}

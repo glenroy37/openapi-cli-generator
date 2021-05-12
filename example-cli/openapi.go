@@ -6,7 +6,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/danielgtaylor/openapi-cli-generator/cli"
+	"github.com/glenroy37/openapi-cli-generator/cli"
 	"github.com/pkg/errors"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/cobra"
